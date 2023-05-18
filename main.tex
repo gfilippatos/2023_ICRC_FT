@@ -36,11 +36,65 @@
 
 \section{Instrument Overview}
 
-\begin{thebibliography}{99}
-\bibitem{...}
-....
+The Fluorescence Telescope (FT) on board EUSO-SPB2 built on the experience of previous EUSO missions.
+EUSO-Balloon \citep{EUSO-Ballon} a one night flight from Timmins Canada in 2015 and EUSO-SPB1 \citep{SPB1}, a planned long duration flight from Wanaka New Zealanad in 2017, each flew one photo-detection modules (PDMs) and refractive optics.
+The FT was comprised of three PDMs at the focus of a modified Schmidt telescope. 
 
-\end{thebibliography}
+Each PDM was made up of 36 multi-anode photo-multiplier tubes (MAPMTs Hamamatsu Photonics R11265-M64) woth 64 pixels each. 
+Four MAPMTs are grouped together and potted in a gelatanous compound to form an Elementary Cell (EC) with a shared high voltage power supply (HVPS) utilizing a Cockroft-Walton circuit. 
+Each MAPMT is read out by a SPACIROC3 ASIC preforming both photon counting and continous integration (KI). 
+The photon counting channel of the 2,304 total pixes are digitized with a 952 kHz frequency and a double pulse resolution of \~6 ns.
+While the continous integration channel the MAPMTs are digitized at the same cadence, 8 photon counting pixels are grouped together, resulting in 8 KI channels per MAPMT.
+Data from the 36 ASICs are sent to three cross boards containing an Atrix 7 FPGA which multiplex the data.
+The PDM is controlled by a Xilinx Zynq 7000 FPGA with an embedded dual core ARM9 CPU on a custom readout board which handles triggering and data packaging among other tasks \citep{SPB2Trigger}. 
+
+A dataprocessor containing redundant CPUs, reduandant differential GPSs, a housekeeping board and a clock board, controls the PDMs. 
+The clockboard syncronizes the readout of the three PDMs by recieivng the output of the trigger logic on each Zynq board and issuing signals to the three PDMs in parrallel. 
+Additionally, data from two differential GPS are packaged with trigger and deadtime information for each event that is recorded by the clockboard. 
+The CPU handles commanding of all subsytems as well as the combining of data from the three PDMs and the clockboard. 
+In addition to internal commanding, the CPU recieves and processes commands from ground. 
+Further, the CPU compresses data for download and transmits all monitoring data to ground. 
+Monitoring data includes 18 temperature probes, which were placed around the payload, humidity and pressure sensors, gyroscope information, and data from two photo-diodes at the focus of the telescope. 
+There are two calibrated health-LEDs beneath the PDMs which are used to monitor the status of the instrument. 
+
+The three PDMs are at the focus of a 1-m diameter entrance pupil Schmidt telescope, behind field flatteners and BG-3 filters. 
+Comprised of six segmented spherical mirrors and an aspheric corrector plate, the telescope focuses light into a spot size of \~2 mm with an optical throughput of 67\%, far greater than refractive optics flown on previous EUSO missions. 
+The FT is hung on one half of the EUSO-SPB2 gondola, beneath the science information package (SIP).
+Three indpendent telemetry links are handeld by the SIP, with a fourth, a Starlink connection, connected directly to the FT CPU.  
+Next to the FT hangs the Cherenkov telescope, with a tilt mechanism allowing for +5/-13 degrees of pointing, beneath the gondola control computer and science power system. 
+The 5,025 lbs of instrumentation and support equipment, with an additional 600 lbs of ballasts, were suspended from an 18.8 million cubic foot super pressure balloon.
+
+
+\section {Pre-Flight Characterizations}
+
+Before the instrument was fully assembled, the PDMs were extensively characterized in the lab using calibrated light sources. 
+The telescope was characterized using a 1-m parralell beam system and photodiodes. 
+
+Prior to flight, in August of 2022, the instrument was field tested in Delta Utah, outside of the Telesceop Array Black Rock Mesa FD. 
+The signal from extensive air showers (EAS) was mimicked by a frequeny trippled Nd-YAG laser at 355 nm, with a robust automated pointing system. 
+Calibrated LEDs placed both in the near and far fields were used to provide an alternative calibration to the piecewise method used in the lab.
+Night sky backroung was observed for tens of hours, including stars, meteors, cosmic rays and airglow. 
+
+Immediately before flight, the telescope was tested again in Wanaka New Zealand. 
+The same calibrated LEDs used in Delta were utilized and the night sky was observed.
+
+\section{Flight Summary}
+
+\section{Detector Preformance}
+
+\section{Exposure and Acceptance}
+
+\section{Analysis of Events}
+
+\section{Conclusions}
+I wish we had SuperBIT's balloon. 
+
+\bibliographystyle{plain}
+\bibliography{references}
+% \begin{thebibliography}{99}
+
+
+% \end{thebibliography}
 
 
 
