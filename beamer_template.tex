@@ -1,0 +1,34 @@
+\useoutertheme{miniframes}
+\usepackage{graphicx,caption,natbib,amsmath}
+\setbeamercolor{structure}{fg=MinesDarkBlue,bg=white}
+\setbeamercolor{section in head/foot}{fg=white, bg=MinesDarkBlue}
+\setbeamercolor{normal text}{fg=MinesDarkBlue,bg=white}
+\setbeamercolor{title}{fg=MinesDarkBlue,bg=white}
+\setbeamercolor{frametitle}{fg=MinesDarkBlue,bg=white}
+\setbeamercolor{section in sidebar}{fg=MinesDarkBlue,bg=white}
+
+\makeatletter
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \raggedright
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,left]{section in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor~~\beamer@ifempty{\insertshortinstitute}{}{(\insertshortinstitute)}
+
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.3333334\paperwidth,ht=2.25ex,dp=1ex,center]{section in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{section in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
+  \end{beamercolorbox}}%
+  % \raggedleft\includegraphics[height=5ex]{PoS_ICRC2023_logo.pdf}
+  \vskip0pt%
+}
+
+\makeatother
+\setbeamertemplate{navigation symbols}{}
+
+% \subtitle{\insertshorttitle}
